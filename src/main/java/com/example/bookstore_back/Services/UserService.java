@@ -53,7 +53,7 @@ public class UserService {
                 request.getEmail(),
                 tokenService.generateToken(request.getUsername()),
                 UserRole.USER.getAuthority(),
-                request.getImage().getBytes()
+                ByteService.getString(request.getImage().getBytes())
         );
         userRepository.save(
                 user

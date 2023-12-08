@@ -22,28 +22,47 @@ public class Book {
     @Column(columnDefinition = "TEXT")
     private String description;
     @JsonIgnore
-    @Lob
-    @Column(columnDefinition = "LONGBLOB")
-    private byte[] preview;
+    @Column(columnDefinition = "TEXT")
+    private String preview;
+//    @Lob
+//    @Column(columnDefinition = "BYTEA")
+//    private  byte[] preview;
     @Column
     private Double cost;
     @OneToOne
     @JoinColumn(name = "file_id")
     private File file;
 
-    public Book(
-            String name,
-            String author,
-            String description,
-            byte[] preview,
-            Double cost,
-            File file
-    ) {
-        this.name = name;
-        this.author = author;
-        this.description = description;
-        this.preview = preview;
-        this.cost = cost;
-        this.file = file;
-    }
+//    public Book(
+//            String name,
+//            String author,
+//            String description,
+//            byte[] preview,
+//            Double cost,
+//            File file
+//    ) {
+//        this.name = name;
+//        this.author = author;
+//        this.description = description;
+//        this.preview = preview;
+//        this.cost = cost;
+//        this.file = file;
+//    }
+public Book(
+        String name,
+        String author,
+        String description,
+        String preview,
+        Double cost,
+        File file
+) {
+    this.name = name;
+    this.author = author;
+    this.description = description;
+    this.preview = preview;
+    this.cost = cost;
+    this.file = file;
+}
+
+
 }

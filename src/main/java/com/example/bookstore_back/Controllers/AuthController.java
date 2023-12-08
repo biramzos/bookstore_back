@@ -8,19 +8,18 @@ import com.example.bookstore_back.DataAccessObjects.RegisterRequest;
 import com.example.bookstore_back.DataAccessObjects.UpdatePasswordRequest;
 import com.example.bookstore_back.Models.Book;
 import com.example.bookstore_back.Models.User;
+import com.example.bookstore_back.Services.ByteService;
 import com.example.bookstore_back.Services.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -125,11 +124,8 @@ public class AuthController {
     @ResponseBody
     @GetMapping(value = "/user/image/{userId}", produces = MediaType.IMAGE_JPEG_VALUE)
     @PreAuthorize("isAuthenticated() or isAnonymous()")
-    public ResponseEntity<byte[]> userImageByUserId(@PathVariable("userId") User user){
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.IMAGE_JPEG);
-        headers.setContentLength(user.getImage().length);
-        return new ResponseEntity<>(user.getImage(), headers, HttpStatus.OK);
+    public byte[] userImageByUserId(@PathVariable("userId") User user){
+        return ByteService.getBytes(user.getImage());
     }
 
     @ResponseBody

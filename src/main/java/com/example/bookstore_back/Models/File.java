@@ -18,13 +18,15 @@ public class File {
     @Column
     private String name;
     @JsonIgnore
-    @Lob
-    @Column(columnDefinition = "LONGBLOB")
-    private byte[] data;
+//    @Lob
+//    @Column(columnDefinition = "BYTEA")
+//    private byte[] data;
+    @Column(columnDefinition = "TEXT")
+    private String data;
 
     public File(
             String name,
-            byte[] data
+            String data
     ){
         this.name = name;
         this.data = data;

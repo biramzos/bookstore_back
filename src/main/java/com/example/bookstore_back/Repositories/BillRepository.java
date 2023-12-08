@@ -4,11 +4,13 @@ import com.example.bookstore_back.Models.Bill;
 import com.example.bookstore_back.Models.User;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
+@EnableJpaRepositories
 @Transactional
 public interface BillRepository extends JpaRepository<Bill, Long> {
     List<Bill> findByCustomer(User customer);

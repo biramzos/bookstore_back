@@ -38,9 +38,11 @@ public class User {
     @Column
     private String role;
     @JsonIgnore
-    @Lob
-    @Column(columnDefinition = "LONGBLOB")
-    private byte[] image;
+//    @Lob
+//    @Column(columnDefinition = "BYTEA")
+//    private byte[] image;
+    @Column(columnDefinition = "TEXT")
+    private String image;
     @JsonIgnore
     @JdbcTypeCode(SqlTypes.JSON)
     @ManyToMany(fetch = FetchType.EAGER)
@@ -70,23 +72,42 @@ public class User {
     )
     private List<Book> bought = new ArrayList<>();
 
-    public User(
-            String firstname,
-            String secondname,
-            String username,
-            String password,
-            String email,
-            String token,
-            String role,
-            byte[] image
-    ){
-        this.firstname = firstname;
-        this.secondname = secondname;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.token = token;
-        this.role = role;
-        this.image = image;
-    }
+//    public User(
+//            String firstname,
+//            String secondname,
+//            String username,
+//            String password,
+//            String email,
+//            String token,
+//            String role,
+//            byte[] image
+//    ){
+//        this.firstname = firstname;
+//        this.secondname = secondname;
+//        this.username = username;
+//        this.password = password;
+//        this.email = email;
+//        this.token = token;
+//        this.role = role;
+//        this.image = image;
+//    }
+public User(
+        String firstname,
+        String secondname,
+        String username,
+        String password,
+        String email,
+        String token,
+        String role,
+        String image
+){
+    this.firstname = firstname;
+    this.secondname = secondname;
+    this.username = username;
+    this.password = password;
+    this.email = email;
+    this.token = token;
+    this.role = role;
+    this.image = image;
+}
 }

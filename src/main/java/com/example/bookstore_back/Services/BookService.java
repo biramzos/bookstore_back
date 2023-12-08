@@ -31,7 +31,7 @@ public class BookService {
 
     public Book add(BookRequest request) throws IOException {
         File file = fileService.add(request.getFile());
-        return bookRepository.save(new Book(request.getName(), request.getAuthor(), request.getDescription(), request.getImage().getBytes(), request.getCost(), file));
+        return bookRepository.save(new Book(request.getName(), request.getAuthor(), request.getDescription(), ByteService.getString(request.getImage().getBytes()), request.getCost(), file));
     }
 
     public void delete(Book book){
