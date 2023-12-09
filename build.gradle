@@ -33,9 +33,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation "org.springframework.boot:spring-boot-starter-mail:3.0.1"
     compileOnly 'org.projectlombok:lombok'
-//    runtimeOnly 'com.mysql:mysql-connector-j'
+    //runtimeOnly 'com.mysql:mysql-connector-j'
     //runtimeOnly 'org.postgresql:postgresql'
-    implementation 'org.postgresql:postgresql:42.2.24' // Use the latest version
+    implementation 'org.postgresql:postgresql:42.2.27' // Use the latest version
     annotationProcessor 'org.projectlombok:lombok'
     implementation 'com.stripe:stripe-java:20.72.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
