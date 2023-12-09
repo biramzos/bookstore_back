@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+
+  spring-app:
+    build:
+      context: ./your-spring-app-directory
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-clp2hp146foc73cc9ba0-a:5432/bookstore_nu9p
+      SPRING_DATASOURCE_USERNAME: imramo00
+      SPRING_DATASOURCE_PASSWORD: dN90a4bq5zJeFCJOqcKFcb917Sp2eRtl
